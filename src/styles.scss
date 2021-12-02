@@ -24,6 +24,7 @@ $icons: #6b7280;
 
 .crossed {
   text-decoration: line-through;
+  color: $icons;
 }
 
 /* body */
@@ -37,7 +38,7 @@ body {
     border: 1px solid grey;
     margin: auto;
     margin-top: 5%;
-    box-shadow: 0 1px 2px 0 rgba($color: #000000, $alpha: 0.6);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
 
     #todo-header {
       display: flex;
@@ -76,11 +77,13 @@ body {
         }
       }
 
+      /* stylelint-disable */
       span {
         font-size: 1rem;
         line-height: 1rem;
         color: $icons;
       }
+      /* stylelint-enable */
     }
 
     #button-container {

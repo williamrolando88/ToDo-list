@@ -8,7 +8,7 @@
     "watch": "webpack -w",
     "webhint": "npx hint .",
     "stylelint": "npx stylelint \"**/*.{css,scss}\" --fix",
-    "eslint": "npx eslint ."
+    "eslint": "npx eslint . --fix"
   },
   "repository": {
     "type": "git",

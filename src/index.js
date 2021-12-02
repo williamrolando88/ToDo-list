@@ -1,15 +1,6 @@
 import './styles.scss';
-import ToDoList from './_ToDoList.js';
-import { checkbox } from './_checkbox.js';
 import createListItem from './_createListItem.js';
-
-const list = new ToDoList();
-list.add('Wash the dishes');
-list.add('Do the laundry');
-// list.add('Walk the dog');
-// list.add('Buy the grocceries');
-// list.add('Meet aunt at six pm');
-// list.add('Submit project');
+import { list } from './_list.js';
 
 /**
  * *Function to render elements in HTML
@@ -19,8 +10,19 @@ function renderElements() {
   list.array.forEach((task) => {
     const activity = createListItem(task.description, task.estatus, task.index);
     activitiesContainer.appendChild(activity);
-    const checkbox = document.querySelector('.checkbox');
-    // console.log(checkbox.checked);
+  });
+
+  const checkbox = document.querySelectorAll('.checkbox');
+  const label = document.querySelectorAll('.task-label');
+  checkbox.forEach((element, index) => {
+    element.addEventListener('change', () => {
+      list.statusUpdate(index, checkbox[index].checked);
+      if (checkbox[index].checked === true) {
+        label[index].classList.add('crossed');
+      } else {
+        label[index].classList.remove('crossed');
+      }
+    });
   });
 }
 renderElements();

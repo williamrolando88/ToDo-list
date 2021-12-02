@@ -11,6 +11,7 @@ export default class ToDoList {
     this.set(this.array);
   }
 
+  /* eslint-disable */
   set(element) {
     localStorage.setItem('toDoList', JSON.stringify(element));
   }
@@ -21,5 +22,10 @@ export default class ToDoList {
     } else {
       this.array = JSON.parse(localStorage.getItem('toDoList'));
     }
+  }
+
+  statusUpdate(index, newEstatus) {
+    this.array[index].estatus = newEstatus;
+    this.set(this.array);
   }
 }
