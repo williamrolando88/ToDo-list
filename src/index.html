@@ -4,23 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDo List</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>To Do List</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi minima quas
-      sit neque. Amet voluptatum corporis officia, reiciendis veniam, ut rem
-      vero suscipit a porro incidunt dignissimos consequatur, similique quis.
-      Perspiciatis architecto voluptatibus libero! Obcaecati rem praesentium
-      placeat explicabo, labore commodi, esse ipsum reprehenderit nostrum
-      repellendus est quam aut sed quisquam pariatur vitae, harum voluptates
-      repudiandae amet magnam vel? Tempore!
-    </p>
-    <ul>
-      <li>element</li>
-      <li>element</li>
-    </ul>
-    <div></div>
+    <div id="todo-container">
+      <div id="todo-header">
+        <h1>Today's To Do</h1>
+        <span class="material-icons"> sync </span>
+      </div>
+
+      <form action="#">
+        <input id="todo-input" type="text" placeholder="Add to your list.." />
+        <span class="material-icons"> keyboard_return </span>
+      </form>
+
+      <ul id="activities-container"></ul>
+
+      <div id="button-container">
+        <button type="button">Clear all completed</button>
+      </div>
+    </div>
   </body>
 </html>
