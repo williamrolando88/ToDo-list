@@ -5,27 +5,80 @@ export default class ToDoList {
     this.array = [];
   }
 
-  add(description) {
-    const task = new Task(description, this.array.length);
+  add(description, estatus = false) {
+    const pos = this.array.length;
+    const task = new Task(description, pos, estatus, `id.${pos}`);
     this.array.push(task);
-    this.set(this.array);
+    this.reid();
+    this.set();
+  }
+
+  statusUpdate(index, newEstatus) {
+    this.array.forEach((element) => {
+      if (element.id === `id.${index}`) {
+        element.estatus = newEstatus;
+      }
+      this.set();
+    });
+  }
+
+  descriptionUpdate(index, description) {
+    this.array.forEach((element) => {
+      if (element.id === `id.${index}`) {
+        element.description = description;
+      }
+    });
+    this.set();
+  }
+
+  removeOnce(index) {
+    this.array = this.array.filter((element) => {
+      if (element.id !== `id.${index}`) {
+        return element;
+      }
+    });
+    this.reindex();
+    this.set();
+  }
+
+  removeCompleted() {
+    this.array = this.array.filter((element) => {
+      if (element.estatus === false) {
+        return element;
+      }
+    });
+    this.reindex();
+    this.reid();
+    this.set();
+  }
+
+  reindex() {
+    if (this.array.length > 0) {
+      this.array.forEach((element, index) => {
+        element.index = index;
+      });
+    }
+  }
+
+  reid() {
+    if (this.array.length > 0) {
+      this.array.forEach((element, index) => {
+        element.id = `id.${index}`;
+      });
+    }
   }
 
   /* eslint-disable */
-  set(element) {
-    localStorage.setItem('toDoList', JSON.stringify(element));
+  set() {
+    localStorage.setItem('toDoList', JSON.stringify(this.array));
   }
 
-  get() {
+  static get() {
     if (!JSON.parse(localStorage.getItem('toDoList'))) {
       this.array = [];
     } else {
       this.array = JSON.parse(localStorage.getItem('toDoList'));
     }
-  }
-
-  statusUpdate(index, newEstatus) {
-    this.array[index].estatus = newEstatus;
-    this.set(this.array);
+    return this.array;
   }
 }
