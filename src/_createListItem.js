@@ -23,19 +23,22 @@ const createHtmlElementWithClass = (tagName, className) => {
  */
 const createListItem = (description, estatus, index) => {
   const li = createHtmlElementWithClass('li', 'task-container');
-  li.setAttribute('id', `toDo${index}`);
 
   const descriptionDiv = createHtmlElementWithClass('div', 'task-description');
+
+  const labelClass = ['task-label'];
+  if (estatus) {
+    labelClass.push('crossed');
+  }
 
   const checkbox = createHtmlElementWithClass('input', 'checkbox');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.checked = estatus;
   checkbox.setAttribute('name', `checkbox${index}`);
-  checkbox.id = `checkbox${index}`;
   descriptionDiv.appendChild(checkbox);
 
-  const label = createHtmlElementWithClass('label', 'task-label');
-  label.setAttribute('for', `checkbox${index}`);
+  const label = createHtmlElementWithClass('label', labelClass);
+  label.id = `label${index}`;
   label.textContent = description;
   descriptionDiv.appendChild(label);
 
@@ -51,6 +54,7 @@ const createListItem = (description, estatus, index) => {
   const dragIndicator = createHtmlElementWithClass('span', [
     'material-icons',
     'drag-icon',
+    'hidden',
   ]);
   dragIndicator.textContent = 'more_vert';
   iconsDiv.appendChild(dragIndicator);
@@ -58,7 +62,6 @@ const createListItem = (description, estatus, index) => {
   const deleteIcon = createHtmlElementWithClass('span', [
     'material-icons',
     'delete-icon',
-    'hidden',
   ]);
   deleteIcon.textContent = 'delete';
   iconsDiv.appendChild(deleteIcon);
