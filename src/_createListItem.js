@@ -26,7 +26,7 @@ const createListItem = (description, estatus, index) => {
 
   const descriptionDiv = createHtmlElementWithClass('div', 'task-description');
 
-  let labelClass = ['task-label'];
+  const labelClass = ['task-label'];
   if (estatus) {
     labelClass.push('crossed');
   }

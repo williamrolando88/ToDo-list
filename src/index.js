@@ -49,31 +49,6 @@ function toggleClassBetweenElements(elem1, elem2, className) {
 }
 
 /**
- * *Function to render elements stored in local storage
- */
-window.onload = function reload() {
-  if (ToDoList.get().length > 0) {
-    const memoryList = ToDoList.get();
-    memoryList.forEach((task) => {
-      list.add(task.description, task.estatus);
-    });
-    renderElements(list.array);
-  }
-};
-
-/**
- * *Function to add new task
- */
-newTask.addEventListener('keyup', (e) => {
-  e.preventDefault;
-  if (e.code === 'Enter' && newTask.value.trim() !== '') {
-    list.add(newTask.value);
-    newTask.value = '';
-    renderElements(list.array);
-  }
-});
-
-/**
  * *Function to render elements in HTML
  */
 function renderElements(object) {
@@ -88,7 +63,6 @@ function renderElements(object) {
   const checkbox = document.querySelectorAll('.checkbox');
   const label = document.querySelectorAll('.task-label');
   const text = document.querySelectorAll('.task-input');
-  const dragIcon = document.querySelectorAll('.drag-icon');
   const deleteIcon = document.querySelectorAll('.delete-icon');
 
   checkStatus(checkbox, label);
@@ -120,7 +94,7 @@ function renderElements(object) {
       returnAndSave(index);
     });
     element.addEventListener('keyup', (e) => {
-      e.preventDefault;
+      e.preventDefault();
       if (e.code === 'Enter' && text[index].value.trim() !== '') {
         returnAndSave(index);
       }
@@ -138,7 +112,35 @@ function renderElements(object) {
   });
 }
 
+/**
+ * *Function to erase all completed elements
+ */
 clearAllButton.addEventListener('click', () => {
   list.removeCompleted();
   renderElements(list.array);
+});
+
+/**
+ * *Function to render elements stored in local storage
+ */
+window.onload = function reload() {
+  if (ToDoList.get().length > 0) {
+    const memoryList = ToDoList.get();
+    memoryList.forEach((task) => {
+      list.add(task.description, task.estatus);
+    });
+    renderElements(list.array);
+  }
+};
+
+/**
+ * *Function to add new task
+ */
+newTask.addEventListener('keyup', (e) => {
+  e.preventDefault();
+  if (e.code === 'Enter' && newTask.value.trim() !== '') {
+    list.add(newTask.value);
+    newTask.value = '';
+    renderElements(list.array);
+  }
 });

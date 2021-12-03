@@ -31,6 +31,7 @@ export default class ToDoList {
     this.set();
   }
 
+  /* eslint-disable */
   removeOnce(index) {
     this.array = this.array.filter((element) => {
       if (element.id !== `id.${index}`) {
@@ -51,6 +52,7 @@ export default class ToDoList {
     this.reid();
     this.set();
   }
+  /* eslint-enable */
 
   reindex() {
     if (this.array.length > 0) {
@@ -68,7 +70,6 @@ export default class ToDoList {
     }
   }
 
-  /* eslint-disable */
   set() {
     localStorage.setItem('toDoList', JSON.stringify(this.array));
   }

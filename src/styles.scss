@@ -149,6 +149,7 @@ body {
     flex-grow: 0;
     color: $icons;
 
+    /* stylelint-disable */
     span {
       font-size: 1rem;
 
@@ -156,5 +157,6 @@ body {
         cursor: pointer;
       }
     }
+    /* stylelint-enable */
   }
 }
