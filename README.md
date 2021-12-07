@@ -54,7 +54,7 @@ You can work in your favorite Code Editor -->
 
 <!-- There is no Live Demo available at the moment -->
 
-If you want to see a live demo of this project, [click here](https://williamrolando88.github.io/to-do-list/)
+If you want to see a live demo of this project, [click here](https://williamrolando88.github.io/ToDo-list/)
 
 ## Authors
 
