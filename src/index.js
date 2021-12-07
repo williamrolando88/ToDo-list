@@ -11,7 +11,7 @@ const list = new ToDoList();
 
 /**
  * *Auxiliar function to empty a node
- * @param {node} parentNode - to be emptied
+ * @param {HTMLElement} parentNode - to be emptied
  */
 const removeAllChildrenNodes = (parentNode) => {
   while (parentNode.firstChild) {

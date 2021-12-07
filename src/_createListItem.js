@@ -51,14 +51,6 @@ const createListItem = (description, estatus, index) => {
 
   const iconsDiv = createHtmlElementWithClass('div', 'task-icons');
 
-  const dragIndicator = createHtmlElementWithClass('span', [
-    'material-icons',
-    'drag-icon',
-    'hidden',
-  ]);
-  dragIndicator.textContent = 'more_vert';
-  iconsDiv.appendChild(dragIndicator);
-
   const deleteIcon = createHtmlElementWithClass('span', [
     'material-icons',
     'delete-icon',
