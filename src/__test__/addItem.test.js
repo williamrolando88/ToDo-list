@@ -33,4 +33,9 @@ describe('remo item', () => {
     activitiesContainer.removeChild(activitiesContainer.firstChild);
     expect(activitiesContainer.childElementCount).toBe(0);
   });
+
+  test('remove task from list', () => {
+    list.removeOnce(0);
+    expect(list.array.length).toBe(0);
+  });
 });
