@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import createListItem from '../_createListItem';
-import ToDoList from '../_ToDoList';
+import createListItem from '../_createListItem.js';
+import ToDoList from '../_ToDoList.js';
 
 const list = new ToDoList();
 list.add('Wash the dishes');
