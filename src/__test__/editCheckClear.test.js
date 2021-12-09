@@ -30,3 +30,18 @@ describe('update values in a task', () => {
     expect(label[0].textContent).toBe('Wash the dog');
   });
 });
+
+describe('Mark a task as completed clicking on the checkbox', () => {
+  const checkboxList = activitiesContainer.querySelectorAll('.checkbox');
+  test('It should be 3 activities with checkboxes', () => {
+    expect(checkboxList.length).toBe(3);
+  });
+  test('click on checkbox task 1', () => {
+    checkboxList[0].click();
+    expect(checkboxList[0].checked).toBe(true);
+  });
+  test('Update status in local storage', () => {
+    list.statusUpdate(0, checkboxList[0].checked)
+    expect(list.array[0].estatus).toBe(true);
+  });
+});
