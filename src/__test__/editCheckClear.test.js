@@ -16,6 +16,17 @@ list.array.forEach((task) => {
   activitiesContainer.appendChild(taskItem);
 });
 
-test('render 1 element', () => {
-  expect(activitiesContainer.childElementCount).toBe(3);
+describe('update values in a task', () => {
+  test('render 3 element', () => {
+    expect(activitiesContainer.childElementCount).toBe(3);
+  });
+  test('update 1 task description', () => {
+    list.descriptionUpdate(0, 'Wash the dog');
+    expect(list.array[0].description).toBe('Wash the dog');
+  });
+  test('update 1 DOM description', () => {
+    const label = activitiesContainer.querySelectorAll('.task-label');
+    label[0].textContent = list.array[0].description;
+    expect(label[0].textContent).toBe('Wash the dog');
+  });
 });

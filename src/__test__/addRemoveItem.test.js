@@ -28,7 +28,7 @@ describe('add item', () => {
   });
 });
 
-describe('remo item', () => {
+describe('remove item', () => {
   test('remove from DOM', () => {
     activitiesContainer.removeChild(activitiesContainer.firstChild);
     expect(activitiesContainer.childElementCount).toBe(0);
