@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import renderElements from './renderElements';
+// import renderElements from './renderElements';
 import ToDoList from '../_ToDoList.js';
 import createListItem from '../_createListItem.js';
 
@@ -44,4 +44,15 @@ describe('Mark a task as completed clicking on the checkbox', () => {
     list.statusUpdate(0, checkboxList[0].checked)
     expect(list.array[0].estatus).toBe(true);
   });
+});
+
+describe('Clear all completed tasks', () => {
+  list.statusUpdate(2, true);
+  test('only uncompleted tasks remain' , () => {
+    list.removeCompleted();
+    expect(list.array.length).toBe(1);
+  });
+  test('index of remaining element is correct', () => {
+    expect(list.array[0].index).toBe(0);
+  })
 });
