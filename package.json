@@ -10,7 +10,7 @@
     "stylelint": "npx stylelint \"**/*.{css,scss}\" --fix",
     "eslint": "npx eslint . --fix",
     "deploy": "gh-pages -d dist",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
