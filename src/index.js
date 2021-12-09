@@ -144,3 +144,5 @@ newTask.addEventListener('keyup', (e) => {
     renderElements(list.array);
   }
 });
+
+export { removeAllChildrenNodes };
