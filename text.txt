@@ -1,7 +1,0 @@
-crete new list
-add 3 items
-mock the html and render the 3 elements
-
-test edit function from DOM and check it local storage and DOM
-test click on the checkbox in the mock DOM and check new status in the object
-test mock the click in DOM and clear all the "completed" tasks
